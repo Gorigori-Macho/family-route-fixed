@@ -1,0 +1,239 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+  color: #17333d;
+  background: linear-gradient(180deg, #f8fdff 0%, #eef9fc 100%);
+}
+
+.hero {
+  text-align: center;
+  padding: 48px 20px 24px;
+}
+
+.eyebrow,
+.story-label {
+  margin: 0 0 8px;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  font-weight: bold;
+  color: #2f97a8;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(30px, 5vw, 52px);
+  color: #174d5e;
+}
+
+.lead {
+  margin: 14px auto 0;
+  max-width: 680px;
+  line-height: 1.8;
+  color: #55737d;
+}
+
+main {
+  width: min(1100px, 94%);
+  margin: 0 auto;
+}
+
+.route-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 22px 0;
+}
+
+.route-button {
+  border: 1px solid #cbe8ed;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.92);
+  padding: 16px 14px;
+  color: #174d5e;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(41, 112, 130, 0.08);
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.route-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px rgba(41, 112, 130, 0.15);
+}
+
+.route-button.active {
+  background: #dff7fb;
+  border-color: #7bc8d5;
+}
+
+.button-name,
+.button-route {
+  display: block;
+}
+
+.button-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.button-route {
+  font-size: 13px;
+  color: #5f7e87;
+}
+
+.map-card {
+  padding: 14px;
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: 0 16px 42px rgba(32, 100, 120, 0.13);
+}
+
+.map-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.world-map {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  pointer-events: none;
+}
+
+.route-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+#routePath {
+  fill: none;
+  stroke: #ff7d8c;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 10 10;
+  opacity: 0;
+  vector-effect: non-scaling-stroke;
+}
+
+#routePath.show {
+  opacity: 0.9;
+}
+
+.place {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 3;
+  white-space: nowrap;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ff7d8c;
+  border: 2px solid white;
+  box-shadow: 0 0 0 3px rgba(255, 125, 140, 0.22);
+}
+
+.japan-dot {
+  background: #e84f63;
+}
+
+.place-name {
+  padding: 4px 7px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  font-size: clamp(10px, 1.3vw, 14px);
+  font-weight: bold;
+  color: #345b66;
+}
+
+/* この画像に合わせた位置 */
+.place-africa {
+  left: 20.2%;
+  top: 67%;
+}
+
+.place-japan {
+  left: 47.5%;
+  top: 54.4%;
+}
+
+.place-brazil {
+  left: 90%;
+  top: 74%;
+}
+
+.place-brazil .place-name {
+  margin-left: 8px;
+}
+
+.ship {
+  position: absolute;
+  left: 45.5%;
+  top: 54.5%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(26px, 4vw, 46px);
+  z-index: 5;
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.2));
+  pointer-events: none;
+}
+
+.story-card {
+  margin: 24px auto 0;
+  padding: 24px 26px;
+  max-width: 850px;
+  border-radius: 18px;
+  background: white;
+  box-shadow: 0 10px 30px rgba(32, 100, 120, 0.08);
+}
+
+.story-card h2 {
+  margin: 0 0 10px;
+  color: #174d5e;
+}
+.story-card p:last-child {
+  margin: 0;
+  line-height: 1.9;
+  color: #55737d;
+  white-space: pre-line;
+}
+
+footer {
+  padding: 34px 20px 42px;
+  text-align: center;
+  color: #78909a;
+  font-size: 13px;
+}
+
+@media (max-width: 720px) {
+  .hero {
+    padding-top: 34px;
+  }
+
+  .route-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .map-card {
+    padding: 7px;
+  }
+
+  .place-name {
+    display: none;
+  }
+}

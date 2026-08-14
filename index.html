@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>わたしの家族の航路</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <p class="eyebrow">MY FAMILY ROOTS</p>
+    <h1>わたしの家族の航路</h1>
+    <p class="lead">
+      家族の名前を選ぶと、海を渡ってきたルートを船がたどります。
+    </p>
+  </header>
+
+  <main>
+    <section class="route-buttons" aria-label="家族の移動ルート">
+      <button class="route-button" data-route="AfricaBrazil">
+        <span class="button-name">父の先祖</span>
+        <span class="button-route">アフリカ → ブラジル</span>
+      </button>
+
+      <button class="route-button" data-route="JapanBrazil">
+        <span class="button-name">曾祖母と祖父</span>
+        <span class="button-route">日本 → ブラジル</span>
+      </button>
+
+      <button class="route-button" data-route="BrazilJapan">
+        <span class="button-name">両親と私</span>
+        <span class="button-route">ブラジル → 日本</span>
+      </button>
+    </section>
+
+    <section class="map-card">
+      <div class="map-container" id="mapContainer">
+        <img src="world-map.png" alt="日本を中心にした世界地図" class="world-map">
+
+        <!-- 船が通った航路を描くためのSVG -->
+        <svg class="route-layer" viewBox="0 0 1000 687" preserveAspectRatio="none" aria-hidden="true">
+          <path id="routePath" d="" />
+        </svg>
+
+        <!-- 地点 -->
+        <div class="place place-africa">
+          <span class="dot"></span>
+          <span class="place-name">アフリカ</span>
+        </div>
+
+        <div class="place place-japan">
+          <span class="dot japan-dot"></span>
+          <span class="place-name">日本</span>
+        </div>
+
+        <div class="place place-brazil">
+          <span class="dot"></span>
+          <span class="place-name">ブラジル</span>
+        </div>
+
+        <!-- 船 -->
+        <div id="ship" class="ship" aria-hidden="true">🚢</div>
+      </div>
+    </section>
+
+    <section class="story-card" aria-live="polite">
+      <p class="story-label">FAMILY STORY</p>
+      <h2 id="storyTitle">名前を選んでください</h2>
+      <p id="storyText">
+        上のボタンを押すと、その家族がたどった航路を船が進みます。
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>家族の歴史を、HTML・CSS・JavaScriptで表現しました。</p>
+  </footer>
+
+  <audio id="shipSound" src="ship-horn.mp3"></audio>
+<audio id="jetSound" src="jet.mp3"></audio>
+
+<script src="script.js"></script>
+</body>
+</html>
